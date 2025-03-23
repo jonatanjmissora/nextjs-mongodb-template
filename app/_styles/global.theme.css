@@ -1,0 +1,49 @@
+:root {
+  --color-primary: #3E327B;
+  --color-primary-hover: #5f51a3;
+  --color-primary25: #9890c4;
+  --color-secondary: #262536;
+  --color-secondary-hover: #3e3d52;
+
+  --black: #222;
+  --black80: #333333aa;
+  --black25: #44444480;
+
+  --white: #eee;
+  --white80: #eeeeeecc;
+  --white25: #eeeeee80;
+
+  --bg-body: linear-gradient(310deg, #9686e5, #dbd6f5);
+  --bg-body-dark: linear-gradient(310deg, #181623, #1e1b2d);
+  --foreground: var(--black);
+  --foreground80: var(--black80);
+  --foreground25: var(--black25);
+
+  --ghost-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
+  --ghost-active: rgba(78, 39, 218, 0.2);
+
+  --shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.50),
+    inset 2px 2px 2px rgba(80, 80, 80, 0.25),
+    35px 5px 50px rgba(0, 0, 0, 0.75);
+  --shadow-dark: inset -2px -2px 2px rgba(0, 0, 0, 0.75),
+    inset 2px 2px 2px rgba(80, 80, 80, 0.25),
+    35px 5px 50px rgba(0, 0, 0, 0.75);
+}
+
+[data-theme='dark'] {
+  --bg-body: var(--bg-body-dark);
+  --foreground: var(--white);
+  --foreground75: var(--white80);
+  --foreground25: var(--white25);
+  --ghost-shadow: 0 0 3px rgb(255, 255, 255, 0.25);
+  --shadow: var(--shadow-dark);
+}
+
+[data-theme='dark'] .sun-icon,
+[data-theme='light'] .moon-icon {
+  display: none;
+}
+[data-theme='light'] .sun-icon,
+[data-theme='dark'] .moon-icon {
+  display: visibility;
+}
