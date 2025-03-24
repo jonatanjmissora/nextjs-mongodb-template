@@ -1,5 +1,7 @@
+
+const LINKS = ["dashboard", "about"]
+
 export const NavLinks = [
-  { href: "/", text: "home", includes: "" },
-  { href: "/dashboard", text: "dashboard", includes: "dashboard" },
-  { href: "/about", text: "about", includes: "about" },
+  ... [{ href: "/", text: "home", includes: "" }],
+  ... LINKS.map((link) => ({ href: `/${link}`, text: link, includes: link })),
 ]
