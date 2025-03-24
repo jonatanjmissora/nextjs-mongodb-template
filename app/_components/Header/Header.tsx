@@ -6,6 +6,7 @@ import { LoginLink, LogoutLink, RegisterLink } from '@kinde-oss/kinde-auth-nextj
 import getUser from '@/app/_data/user/get-user'
 import UserMenu from './UserMenu'
 import { KindeUserType } from '@/app/_lib/types/user-type'
+import DesktopThemeSwitcher from './DesktopThemeSwitcher'
 
 export default async function Header() {
 
@@ -27,7 +28,10 @@ export default async function Header() {
       {
         user
         ? <UserMenu user={user}/>
-        : <LoginLink className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</LoginLink>
+        : <div className='flex space-x-8'>
+            <DesktopThemeSwitcher />
+            <LoginLink className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</LoginLink>
+          </div>
       }
 
     </header>
