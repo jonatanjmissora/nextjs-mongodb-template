@@ -1,4 +1,4 @@
-import { getCollection } from "../connect"
+import { getCollection } from "./connect"
 
 export const getUsersDB = async () => {
     const usersCollection = await getCollection("users")
