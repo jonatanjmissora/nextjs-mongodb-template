@@ -2,13 +2,12 @@
 
 import { useState } from "react"
 
-import ThemeSwitcher from "./ThemeSwitcher"
 
 import { usePathname } from "next/navigation"
 import MenuSVG from "@/app/_assets/MenuSVG"
 import { NavLinks } from "@/app/_lib/constants"
-import PlusSvg from "@/app/_assets/PlusSvg"
-
+import PlusSVG from "@/app/_assets/PlusSvg"
+import { ThemeSwitcher } from "./ThemeSwitcher"
 export default function MobilMenu() {
 
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -37,13 +36,12 @@ const DesktopMenu = ({setShowMenu, pathname }: { setShowMenu: (value: boolean) =
 
   const pathnameArray = pathname.split("/")
   const currentPath = pathnameArray[pathnameArray.length - 1]
-  console.log(pathnameArray)
 
   return (
     <div className="modal-menu-container fixed inset-0 z-10 bg-[var(--color-primary)] rounded-l-none sm:rounded-l-xl shadow-lg">
       <div className="w-full flex justify-between items-center p-4 px-10 sm:px-8 2xl:px-10 gap-6">
         <button onClick={() => setShowMenu(false)}>
-          <PlusSvg className="size-11 sm:size-9 2xl:size-11 rotate-45 hover:text-[var(--color-primary-hover)]" />
+          <PlusSVG className="size-11 sm:size-9 2xl:size-11 rotate-45 hover:text-[var(--color-primary-hover)]" />
         </button>
       </div>
 
@@ -58,7 +56,7 @@ const DesktopMenu = ({setShowMenu, pathname }: { setShowMenu: (value: boolean) =
       </nav>
 
       <div className="flex flex-col gap-8 sm:gap-6 2xl:gap-8 text-center items-end p-10 sm:p-8 2xl:p-10">
-        <ThemeSwitcher setShowMenu={setShowMenu}/>
+        <ThemeSwitcher />
       </div>
     </div>
   )
