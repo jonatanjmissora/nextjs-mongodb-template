@@ -18,7 +18,7 @@ export default function RootLayout({
       <body className="min-h-dvh sm:h-dvh w-full flex flex-col">
         <ThemeProvider>
           <Header />
-          <main className="flex-1 flex flex-col">
+          <main className="flex-1 flex flex-col py-12">
 
             {children}
 

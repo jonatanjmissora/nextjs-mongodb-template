@@ -7,7 +7,7 @@ export default async function page() {
 
   return (
     <div className="flex-1 flex flex-col gap-2 justify-center items-center mx-auto w-[95%] h-full sm:w-3/4">
-      <p className='font-bold text-4xl tracking-wider p-12'>NOTES PAGE</p>
+      <p className='font-bold text-4xl tracking-wider pb-12'>NOTES PAGE</p>
    
       <div className='flex flex-col gap-6 justify-center items-start'>
         {notes.map(note => 
