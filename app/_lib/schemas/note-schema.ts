@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb"
 import { z } from "zod"
 
 const title = new RegExp(
@@ -15,7 +14,7 @@ const author = new RegExp(
 
 export const noteSchema = z.object({
 
-  _id: z.instanceof(ObjectId).transform((_id) => _id.toString()).optional(),
+  _id: z.instanceof(Object).transform((_id) => _id.toString()).optional(),
 
   title: z
     .string()

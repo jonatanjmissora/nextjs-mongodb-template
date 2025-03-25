@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import SubmitBtn from "../SubmitBtn";
-import { NoteFixType } from "@/app/_lib/types/note-type";
+import { NoteType } from "@/app/_lib/types/note-type";
 import useFormState from "@/app/_lib/hooks/useFormState";
 
-export default function NoteForm({ userId, note }: { userId: string, note?: NoteFixType }) {
+export default function NoteForm({ userId, note }: { userId: string, note?: NoteType }) {
 
-  const { formState, formAction, isPending } = useFormState({ userId, note })
+  const { formState, formAction } = useFormState({ userId, note })
 
   return (
     <form action={formAction} className='flex flex-col gap-4 w-[20rem]'>
