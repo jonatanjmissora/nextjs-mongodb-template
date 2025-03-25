@@ -1,8 +1,8 @@
-import UsersList from "@/app/_components/Dashboard/UsersList";
+import NotesList from "@/app/_components/Dashboard/NotesList";
 
 export default async function page() {
 
   return (
-    <UsersList />
+    <NotesList />
   )
 }

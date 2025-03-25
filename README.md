@@ -30,3 +30,6 @@ Complete your new repository from template
 ****************************
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).  👉  <img src="/public/avatar.png" width="70px" height="auto" alt="avatar image"/>
+
+
+usar el cache y el revalidate tag
