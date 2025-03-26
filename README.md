@@ -35,3 +35,7 @@ This repository was built by [Jonatan Missora](https://github.com/jonatanjmissor
 usar el cache y el revalidate tag
 
 no anda bien los regex
+
+quiero hacer el edit, en el form, tengo el userId y noteId en el url
+
+tengo que ver como hacer el skelton para cargar los datos en el form
