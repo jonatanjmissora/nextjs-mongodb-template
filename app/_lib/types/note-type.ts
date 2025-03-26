@@ -7,15 +7,15 @@ export type NewNoteType = {
     pinned: boolean;
 }
 
-export type NoteType = NewNoteType & { _id: ObjectId }
+export type NoteType = NewNoteType & { _id: ObjectId | string }
 
-export type NoteFixType = {
-    _id: string;
-    title: string;
-    content: string;
-    author: string;
-    pinned: boolean;
-}
+// export type NoteFixType = {
+//     _id: string;
+//     title: string;
+//     content: string;
+//     author: string;
+//     pinned: boolean;
+// }
 
 
 

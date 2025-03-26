@@ -1,23 +1,16 @@
 "use client"
 
-import Link from "next/link";
 import SubmitBtn from "../SubmitBtn";
 import { NoteType } from "@/app/_lib/types/note-type";
 import useFormState from "@/app/_lib/hooks/useFormState";
 
 export default function NoteForm({ userId, note }: { userId: string, note?: NoteType }) {
 
-  // TODO tengo que encontrar la note cuando tengo el noteId
-
-
   const { formState, formAction } = useFormState({ userId, note })
 
   return (
     <form action={formAction} className='flex flex-col gap-4 w-[20rem]'>
-      <div className='flex justify-between items-center py-4'>
-        <h2 className='text-3xl font-semibold'>{note?._id ? "Editar" : "Crear"} Nota</h2>
-        <Link className='btn btn-primary' href={"/dashboard"}>Volver</Link>
-      </div>
+
       <input
         autoComplete='off'
         name="title"
