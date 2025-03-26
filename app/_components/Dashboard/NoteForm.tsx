@@ -35,6 +35,8 @@ export default function NoteForm({ userId, note }: { userId: string, note?: Note
       <p className='text-orange-500 italic min-h-6'>{formState?.errors?.content}</p>
 
       <SubmitBtn text={note?._id ? "editar" : "crear"} />
+
+      <p className='text-orange-500 italic min-h-6'>{formState?.serverResp}</p>
     </form>
   )
 }

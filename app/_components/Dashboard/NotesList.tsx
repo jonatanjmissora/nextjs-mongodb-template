@@ -1,7 +1,9 @@
 import PlusSVG from "@/app/_assets/PlusSvg"
+import TrashSVG from "@/app/_assets/TrashSVG"
 import { getNotesAction } from "@/app/_data/notes/get-notes"
 import { NoteType } from "@/app/_lib/types/note-type"
 import Link from "next/link"
+import NoteDeleteModal from "./NoteDeleteModal"
 
 export default async function NotesList() {
 
@@ -19,13 +21,14 @@ export default async function NotesList() {
     {
       notes.length === 0 
       ? <p>No notes found</p> 
-      : <div className='flex flex-col gap-6 justify-center items-start'>
+      : <div className='flex flex-col gap-0 justify-center items-start'>
           {notes.map(note => 
-            <div key={note._id?.toString()} className='flex gap-6 justify-center items-start'>
+            <div key={note._id?.toString()} className='flex gap-6 justify-center items-start border-b border-[var(--foreground25)] p-2'>
               <span>{note.title}</span>
               <span>{note.content}</span>
-              <span>{note.author}</span>
+              <span>{note._id.toString()}</span>
               <span>{note.pinned && "pinned"}</span>
+              <NoteDeleteModal noteId={note._id.toString()}/>
             </div>
           )}
         </div>

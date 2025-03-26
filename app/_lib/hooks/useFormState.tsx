@@ -61,7 +61,7 @@ export default function useFormState({ userId, note }: { userId: string, note?: 
 
     if (res?.success) {
       toast.success(`Nota ${note?._id ? "editada" : "creada"} exitosamente`)
-      router.push("/")
+      router.push("/dashboard")
       failObj.success = true
     }
     else {

@@ -10,7 +10,7 @@ export default function SubmitBtn({ text = "Si", className }: { text?: string, c
       className={`flex-1 btn btn-primary tracking-wider font-bold text-xl sm:text-sm 2xl:text-xl ${className}`}
       disabled={pending}
       type="submit" >
-      {pending ? <SpinnerSVG className='size-7' /> : text}
+      {pending ? <SpinnerSVG className='size-5' /> : text}
     </button>
 
   )

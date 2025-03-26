@@ -33,3 +33,5 @@ This repository was built by [Jonatan Missora](https://github.com/jonatanjmissor
 
 
 usar el cache y el revalidate tag
+
+no anda bien los regex
