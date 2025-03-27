@@ -12,7 +12,7 @@ export default async function NotesList({ userId }: { userId: string }) {
       {
         notes.length === 0
           ? <p>No notes found</p>
-          : <div className='flex flex-col gap-0 justify-center items-start'>
+          : <div className='flex flex-col gap-0 justify-center items-start w-full'>
             {notes.map(note =>
               <div key={note._id?.toString()}
                 // className='flex gap-6 justify-center items-start border-b border-[var(--foreground25)] p-2'

@@ -14,7 +14,12 @@ const author = new RegExp(
 
 export const noteSchema = z.object({
 
-  _id: z.instanceof(Object).transform((_id) => _id.toString()).optional(),
+  // _id: z.instanceof(Object).transform((_id) => _id.toString()).optional(),
+
+  _id: z
+    .string()
+    .regex(/^[0-9a-f]{24}$/)
+    .optional(),
 
   title: z
     .string()

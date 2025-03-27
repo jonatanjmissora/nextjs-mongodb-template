@@ -1,5 +1,5 @@
 import { revalidateTag } from "next/cache"
-import { NewNoteType } from "../types/note-type"
+import { NewNoteType, NoteType } from "../types/note-type"
 import { getCollection } from "./connect"
 import { getErrorMessage } from "../utils/get-error-message"
 import { ObjectId } from "mongodb"
@@ -43,6 +43,7 @@ export const createNoteDB = async (newNote: NewNoteType) => {
     }
 }
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -62,4 +63,34 @@ export const deleteNoteDB = async (noteId: string) => {
     } catch (error) {
         return { success: false, message: getErrorMessage(error) }
     }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const editNoteDB = async (note: NoteType) => {
+
+    try {
+        const { title, content } = note
+        const notesCollection = await getCollection("notes")
+        // db validation
+        const res = await notesCollection.updateOne(
+            {
+                _id: new ObjectId(note._id)
+            },
+            {
+                $set: { "title": title, "content": content }
+            }
+        )
+        if (res.modifiedCount !== 1) {
+            return { success: false, message: "No se pudo editar" }
+        }
+
+        revalidateTag('notes')
+        return { success: false, message: "" }
+
+    } catch (error) {
+        return { success: false, message: getErrorMessage(error) }
+    }
+
 }
