@@ -4,9 +4,10 @@ import { useActionState } from "react"
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
 import { ServerResponse } from "../types/form-state-type"
-import { NewNoteType, NoteType } from "../types/note-type"
+import { NoteType } from "../types/note-type"
 import { noteSchema } from "../schemas/note-schema"
 import { createNoteAction } from "@/app/_actions/notes/create-note-action"
+import { updateNoteAction } from "@/app/_actions/notes/update-note-action"
 
 const failObj = {
   success: false,
@@ -56,21 +57,21 @@ export default function useFormState({ userId, note }: { userId: string, note?: 
     }
 
     // db response
-    // const res = note?._id
-    //   ? await editNoteAction(userId, note?._id, actualNote)
-    //   : await createNoteAction(userId, actualNote)
+    const res = note?._id
+      ? await updateNoteAction(actualNote)
+      : await createNoteAction(actualNote)
 
-    // if (res?.success) {
-    //   toast.success(`Nota ${note?._id ? "editada" : "creada"} exitosamente`)
-    //   router.push("/dashboard")
-    //   failObj.success = true
-    // }
-    // else {
-    //   toast.error("Error en el servidor")
-    //   failObj.success = false
-    //   failObj.prevState = actualNote
-    //   failObj.serverResp = res.message
-    // }
+    if (res?.success) {
+      toast.success(`Nota ${note?._id ? "editada" : "creada"} exitosamente`)
+      router.push("/dashboard")
+      failObj.success = true
+    }
+    else {
+      toast.error("Error en el servidor")
+      failObj.success = false
+      failObj.prevState = actualNote
+      failObj.serverResp = res.message
+    }
 
     return failObj
 

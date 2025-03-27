@@ -1,13 +1,12 @@
 import { ObjectId } from "mongodb"
 
-export type NewNoteType = {
+export type NoteType = {
+    _id?: ObjectId | string;
     title: string;
     content: string;
     author: string;
     pinned: boolean;
 }
-
-export type NoteType = NewNoteType & { _id: ObjectId | string }
 
 // export type NoteFixType = {
 //     _id: string;

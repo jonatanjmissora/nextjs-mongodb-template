@@ -1,11 +1,11 @@
 "use server"
 
 import authUser from "@/app/_data/auth/auth-user"
-import { createNoteDB } from "@/app/_lib/db/notes"
+import { updateNoteDB } from "@/app/_lib/db/notes"
 import { noteSchema } from "@/app/_lib/schemas/note-schema"
 import { NoteType } from "@/app/_lib/types/note-type"
 
-export const createNoteAction = async (newNote: Omit<NoteType, "_id">) => {
+export const updateNoteAction = async (newNote: NoteType) => {
 
   await authUser()
 
@@ -15,6 +15,6 @@ export const createNoteAction = async (newNote: Omit<NoteType, "_id">) => {
     return { success: false, message: "Server validation error" }
   }
 
-  return await createNoteDB(newNote)
+  return await updateNoteDB(newNote)
 
 }

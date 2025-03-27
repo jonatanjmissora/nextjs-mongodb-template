@@ -1,5 +1,5 @@
 import { revalidateTag } from "next/cache"
-import { NewNoteType, NoteType } from "../types/note-type"
+import { NoteType } from "../types/note-type"
 import { getCollection } from "./connect"
 import { getErrorMessage } from "../utils/get-error-message"
 import { ObjectId } from "mongodb"
@@ -25,7 +25,7 @@ export const getNoteByIdDB = async (noteId: string) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const createNoteDB = async (newNote: NewNoteType) => {
+export const createNoteDB = async (newNote: Omit<NoteType, "_id">) => {
 
     try {
         const notesCollection = await getCollection("notes")
@@ -68,7 +68,7 @@ export const deleteNoteDB = async (noteId: string) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const editNoteDB = async (note: NoteType) => {
+export const updateNoteDB = async (note: NoteType) => {
 
     try {
         const { title, content } = note
@@ -87,7 +87,7 @@ export const editNoteDB = async (note: NoteType) => {
         }
 
         revalidateTag('notes')
-        return { success: false, message: "" }
+        return { success: true, message: "" }
 
     } catch (error) {
         return { success: false, message: getErrorMessage(error) }
