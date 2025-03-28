@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef } from "react"
-import SubmitBtn from "../SubmitBtn"
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs"
 
 export default function LogoutModal() {
@@ -15,7 +14,7 @@ export default function LogoutModal() {
       </button>
 
       <dialog ref={dialogRef} className="w-full h-full bg-transparent relative">
-        <div className= "modal-container rounded-lg bg-[var(--color-primary25)] w-[97%] sm:w-max h-max p-10 sm:p-10 2xl:p-20 fixed top-[50%] left-[50%] flex items-center justify-center">
+        <div className="modal-container rounded-lg bg-[var(--color-primary25)] w-[97%] sm:w-max h-max p-10 sm:p-10 2xl:p-20 fixed top-[50%] left-[50%] flex items-center justify-center">
 
           <div className="flex flex-col justify-center items-center gap-10 sm:gap-6 2xl:gap-10">
 

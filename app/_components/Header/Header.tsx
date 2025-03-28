@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import HeaderLink from './HeaderLink'
 import { NavLinks } from '@/app/_lib/constants'
-import { LoginLink, LogoutLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
+import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components'
 import getUser from '@/app/_data/user/get-user'
 import UserMenu from './UserMenu'
 import { KindeUserType } from '@/app/_lib/types/user-type'
@@ -27,8 +27,8 @@ export default async function Header() {
 
       {
         user
-        ? <UserMenu user={user}/>
-        : <div className='flex space-x-8'>
+          ? <UserMenu user={user} />
+          : <div className='flex space-x-8'>
             <DesktopThemeSwitcher />
             <LoginLink className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</LoginLink>
           </div>

@@ -5,6 +5,7 @@ const URI = process.env.MONGODB_URI!
 const DB = process.env.MONGODB_DB!
 const options = {}
 declare global {
+  // eslint-disable-next-line no-var
   var _mongoClientPromise: Promise<MongoClient>
 }
 const client: MongoClient = new MongoClient(URI, options)
@@ -25,8 +26,8 @@ try {
     clientPromise = client.connect()
   }
 } catch (error) {
-  if(error instanceof Error)
-  console.log("ERROR", error.stack);
+  if (error instanceof Error)
+    console.log("ERROR", error.stack);
 }
 finally {
   await client.close();

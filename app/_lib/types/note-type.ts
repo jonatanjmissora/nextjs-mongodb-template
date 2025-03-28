@@ -7,14 +7,3 @@ export type NoteType = {
     author: string;
     pinned: boolean;
 }
-
-// export type NoteFixType = {
-//     _id: string;
-//     title: string;
-//     content: string;
-//     author: string;
-//     pinned: boolean;
-// }
-
-
-
