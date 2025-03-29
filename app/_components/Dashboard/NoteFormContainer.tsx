@@ -1,4 +1,3 @@
-import { NoteType } from "@/app/_lib/types/note-type";
 import NoteForm from "./NoteForm";
 import { getNoteByIdAction } from "@/app/_data/notes/get-note-by-id";
 import authUser from "@/app/_data/auth/auth-user";
