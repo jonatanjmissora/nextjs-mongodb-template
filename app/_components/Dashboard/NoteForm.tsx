@@ -9,7 +9,7 @@ export default function NoteForm({ userId, note }: { userId: string, note?: Note
   const { formState, formAction } = useFormState({ userId, note })
 
   return (
-    <form action={formAction} className='flex flex-col gap-4 w-[20rem]'>
+    <form action={formAction} className='flex flex-col gap-2 w-[20rem]'>
 
       <input
         autoComplete='off'

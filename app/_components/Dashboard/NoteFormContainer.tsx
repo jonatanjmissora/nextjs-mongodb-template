@@ -1,18 +1,22 @@
 import { NoteType } from "@/app/_lib/types/note-type";
 import NoteForm from "./NoteForm";
 import { getNoteByIdAction } from "@/app/_data/notes/get-note-by-id";
+import authUser from "@/app/_data/auth/auth-user";
 
-export default async function NoteFormContainer({ userId, noteId }: { userId: string, noteId?: string }) {
+export default async function NoteFormContainer( { noteId }: { noteId?: string }) {
 
+  
   if (noteId) {
+    const { user, note } = await getNoteByIdAction(noteId)
 
-    const note = await getNoteByIdAction(noteId) as NoteType
-    return <NoteForm userId={userId} note={note} />
+    return <NoteForm userId={user.id} note={note} />
 
   }
   else {
 
-    return <NoteForm userId={userId} />
+    const user = await authUser()
+
+    return <NoteForm userId={user.id} />
 
   }
 }

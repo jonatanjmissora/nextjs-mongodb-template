@@ -1,5 +1,6 @@
 # ℹ️ About 
-Mongodb Crud
+Mongodb Crud with aut
+  - Kinde auth
   - navbar and footer
   - dark/light theme
   - buttons, inputs, links and card UIs
