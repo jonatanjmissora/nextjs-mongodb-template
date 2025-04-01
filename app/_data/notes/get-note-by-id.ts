@@ -1,3 +1,4 @@
+import "server-only"
 import { getNoteByIdDB } from "@/app/_lib/db/notes"
 import authUser from "../auth/auth-user"
 import { KindeUserType } from "@/app/_lib/types/user-type"

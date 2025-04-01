@@ -1,7 +1,5 @@
 import NoteFormContainer from "@/app/_components/Dashboard/NoteFormContainer"
-import LoadingPage from "@/app/_components/LoadingPage"
 import Link from "next/link"
-import { Suspense } from "react"
 
 export default async function page() {
 
@@ -13,9 +11,8 @@ export default async function page() {
         <Link className='btn btn-primary' href={"/dashboard"}>Volver</Link>
       </div>
 
-      <Suspense fallback={<LoadingPage />}>
-        <NoteFormContainer />
-      </Suspense>
+      <NoteFormContainer />
+
     </div>
   )
 }

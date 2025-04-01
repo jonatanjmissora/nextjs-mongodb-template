@@ -1,10 +1,8 @@
 import PlusSVG from "@/app/_assets/PlusSvg";
 import NotesList from "@/app/_components/Dashboard/NotesList";
-import LoadingPage from "@/app/_components/LoadingPage";
 import Link from "next/link";
-import { Suspense } from "react";
 
-export default async function page() {
+export default function page() {
 
   return (
     <div className="flex-1 flex flex-col gap-2 items-center mx-auto w-[95%] h-full sm:w-1/2">
@@ -15,9 +13,7 @@ export default async function page() {
         </Link>
       </div>
 
-      <Suspense fallback={<LoadingPage />}>
-        <NotesList />
-      </Suspense>
+      <NotesList />
 
     </div>
   )

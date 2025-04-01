@@ -1,7 +1,5 @@
 import NoteFormContainer from '@/app/_components/Dashboard/NoteFormContainer'
-import LoadingPage from '@/app/_components/LoadingPage'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
 
 export default async function page({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
 
@@ -15,9 +13,8 @@ export default async function page({ searchParams }: { searchParams: Promise<{ [
         <Link className='btn btn-primary' href={"/dashboard"}>Volver</Link>
       </div>
 
-      <Suspense fallback={<LoadingPage />}>
-        <NoteFormContainer noteId={noteId} />
-      </Suspense>
+      <NoteFormContainer noteId={noteId} />
+
     </div>
   )
 }

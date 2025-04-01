@@ -1,8 +1,19 @@
 import { getNotesAction } from "@/app/_data/notes/get-notes"
 import NoteDeleteModal from "./NoteDeleteModal"
 import EditSVG from "@/app/_assets/EditSVG"
+import { Suspense } from "react"
+import LoadingPage from "../LoadingPage"
 
-export default async function NotesList() {
+export default async function NoteList() {
+
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <LoadNotesList />
+    </Suspense>
+  )
+}
+
+async function LoadNotesList() {
 
   const { user, notes } = await getNotesAction()
 
