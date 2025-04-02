@@ -30,7 +30,7 @@ export default async function Header() {
           ? <UserMenu user={user} />
           : <div className='flex space-x-8'>
             <DesktopThemeSwitcher />
-            <LoginLink className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</LoginLink>
+            <Link href={"/auth/login"} className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</Link>
           </div>
       }
 

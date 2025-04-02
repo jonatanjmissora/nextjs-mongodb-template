@@ -41,7 +41,7 @@ const DesktopMenu = ({ username, setShowMenu, pathname }: { username: string, se
 
   return (
     <div className="modal-menu-container fixed inset-0 z-10 bg-[var(--color-primary)] rounded-l-none sm:rounded-l-xl shadow-lg">
-      <div className="w-full flex justify-between items-center p-4 px-10 sm:px-8 2xl:px-10 gap-6">
+      <div className="w-full flex justify-between items-center px-6 sm:px-12 py-8 gap-6">
         <p className="text-xl sm:text-xs 2xl:text-xl font-bold tracking-wider">Hola, {username.toUpperCase()}</p>
         <button onClick={() => setShowMenu(false)}>
           <PlusSVG className="size-9 sm:size-9 2xl:size-9 rotate-45 hover:text-[var(--color-primary-hover)]" />
