@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
 
       <button onClick={handleClick} className='items-center justify-end gap-4 hover:text-[var(--color-primary-hover)]'>
         <SunSVG className="size-6 sm:size-5 2xl:size-6 sun-icon" />
-        <MoonSVG className="size-6 sm:size-5 2xl:size-6 moon-icon" />
+        <MoonSVG className="size-6 p-1 sm:size-5 2xl:size-6 moon-icon" />
       </button>
 
     </div>

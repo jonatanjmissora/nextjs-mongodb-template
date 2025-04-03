@@ -2,11 +2,11 @@
 import Link from 'next/link'
 import HeaderLink from './HeaderLink'
 import { NavLinks } from '@/app/_lib/constants'
-import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components'
 import getUser from '@/app/_data/user/get-user'
 import UserMenu from './UserMenu'
 import { KindeUserType } from '@/app/_lib/types/user-type'
 import DesktopThemeSwitcher from './DesktopThemeSwitcher'
+import LogoSVG from '@/app/_assets/LogoSVG'
 
 export default async function Header() {
 
@@ -15,7 +15,9 @@ export default async function Header() {
   return (
     <header className="flex justify-between items-center px-6 sm:px-12 py-8 text-[var(--white)]">
 
-      <Link href={"/"} className="btn btn-ghost text-xl sm:text-xs 2xl:text-xl">K@to</Link>
+      <Link href={"/"} className="text-xl sm:text-xs 2xl:text-xl">
+        <LogoSVG className='size-7 text-[var(--color-primary)]' />
+      </Link>
 
       <nav className='sm:flex space-x-4 hidden'>
         {
@@ -23,15 +25,15 @@ export default async function Header() {
             <HeaderLink key={i} href={link.href} text={link.text} />
           ))
         }
+        <UserMenu user={user} />
       </nav>
 
       {
-        user
-          ? <UserMenu user={user} />
-          : <div className='flex space-x-8'>
-            <DesktopThemeSwitcher />
-            <Link href={"/auth/login"} className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</Link>
-          </div>
+        !user
+        && <div className='flex space-x-8'>
+          <DesktopThemeSwitcher />
+          <Link href={"/auth/login"} className='btn btn-primary text-xl sm:text-xs 2xl:text-xl'>Ingresar</Link>
+        </div>
       }
 
     </header>
